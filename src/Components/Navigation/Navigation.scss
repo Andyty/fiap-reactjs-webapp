@@ -1,0 +1,29 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
+
+#navigation-navbar {
+    display: flex;
+    flex-direction: row;
+
+    #navbar-home {
+        justify-self: flex-start;
+        align-content: center;
+        padding-left: 10px;
+    }
+
+    #navbar-search {
+        justify-self: center;
+    }
+
+    #navbar-menus {
+        justify-self: flex-end;
+        padding-right: 10px;
+    }
+
+    @include media-breakpoint-up(md) {
+        #navbar-search-container {
+            width: 50%;
+        }
+    }
+}

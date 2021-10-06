@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Div100vh from 'react-div-100vh';
+// import { HomeController } from './Pages/Home/HomeController';
+import { Navigation } from './Components/Navigation/Navigation';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const UserProfile = React.lazy(() => import('./Pages/UserProfile/UserProfileController'));
+const Login = React.lazy(() => import('./Pages/Login/LoginController'));
+const Home = React.lazy(() => import('./Pages/Home/HomeController'));
+const CourseDetail = React.lazy(() => import('./Pages/CourseDetail/CourseDetailController'));
+
+
+const App = () => {
+    return (
+        <Div100vh>
+            <div className="App">
+                <Navigation />
+                <React.Suspense fallback={<span></span>}>
+                    <Router>
+                        <Switch>
+                            <Route path="/user/:id" exact component={UserProfile} />
+                            <Route path="/course/:id" exact component={CourseDetail} />
+                            <Route path="/login" exact component={Login} />
+                            <Route path="/" exact component={Home} />
+                        </Switch>
+                    </Router>
+                </React.Suspense>
+            </div>
+        </Div100vh>
+    );
 }
 
 export default App;
