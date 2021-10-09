@@ -1,0 +1,17 @@
+.course-card {
+    height: 100%;
+    border-radius: 15px;
+
+    .course-card-img {
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+.discount-overlay {
+    opacity: 0.3;
+    background-color: black;
+    position: absolute;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px 0 15px 0;
+}

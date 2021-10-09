@@ -4,5 +4,5 @@ export interface ICourse {
     title: string;
     description: string;
     image?: string;
-    discount?: string;
+    discount?: number;
 }

@@ -10,7 +10,7 @@ const HomeController: React.FC<IHomeControllerProps> = (props: IHomeControllerPr
     const courses: ICourse[] = [];
 
     for (let i = 0; i < 15; i++) {
-        courses.push({ id: i, title: `(${i}) REACT JS`, description: `(${i}) REACT JS description for the card` });
+        courses.push({ id: i, title: `(${i}) REACT JS`, description: i % 2 ? `(${i}) REACT JS description for the card` : `(${i}) REACT JS description for the card Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa alias laudantium sapiente optio debitis molestias magni sequi qui`, discount: i % 2 ? 20 : undefined });
     }
 
 
