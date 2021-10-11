@@ -3,11 +3,7 @@ import { useParams } from 'react-router';
 import { IUserProfile } from '../../Models/IUserProfile';
 import { UserProfileView } from './UserProfileView';
 
-export interface IUserProfileControllerProps {
-    teste?: boolean;
-};
-
-const UserProfileController: React.FC<IUserProfileControllerProps> = (props: IUserProfileControllerProps) => {
+const UserProfileController: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const user: IUserProfile = {
         id: 1,

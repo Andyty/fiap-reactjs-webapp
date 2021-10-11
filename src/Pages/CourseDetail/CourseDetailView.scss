@@ -1,0 +1,92 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+#course-detail-container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #course-detail-card-img {
+        border-radius: 15px;
+    }
+
+    #course-detail-card {
+        width: 100%;
+        border-radius: 15px;
+
+        #discount-overlay {
+            background-color: rgba($color: #000000, $alpha: 0.25);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px 0 15px 0;
+
+            #promo-price-label {
+                font-weight: bold;
+                color: black;
+            }
+
+            #original-price-label {
+                margin-left: 10px;
+                text-decoration: line-through;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    #course-detail-accordion {
+        width: 100%;
+        border-radius: 15px;
+        margin-top: 20px;
+
+        .course-detail-accordion-header {
+
+            .course-detail-module-title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
+                margin-right: 15px;
+            }
+
+            & .accordion-button {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                background-color: #CECECE;
+                font-weight: bold;
+
+                &:focus {
+                    border-color: black;
+                    box-shadow: none;
+                }
+
+                &:not(.collapsed) {
+                    color: black;
+
+                    &::after {
+                        background-image: escape-svg($accordion-button-icon);
+                    }
+                }
+
+                &.collapsed {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+            }
+        }
+        .course-detail-accordion-item {
+            border-radius: 15px;
+
+            
+            &:not(:first-of-type) {
+                margin-top: 10px;
+            }
+        }
+    }
+}

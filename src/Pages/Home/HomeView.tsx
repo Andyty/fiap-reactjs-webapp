@@ -12,10 +12,11 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
 
     const getCourseCardElement = (course: ICourse): ReactElement => {
         const courseCardProps: ICourseCardProps = {
-            title: course.title,
-            description: course.description,
-            discount: course.discount,
-            image: course.image
+            id: course.id,
+            nome: course.nome,
+            descricao: course.descricao,
+            porc_desconto: course.porc_desconto,
+            url_imagem: course.url_imagem
         }
         return (
             <Col className="homeview-col">

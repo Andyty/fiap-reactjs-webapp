@@ -1,8 +1,7 @@
-// TODO: Adjust fields with backend model
 export interface ICourse {
     id: number;
-    title: string;
-    description: string;
-    image?: string;
-    discount?: number;
+    nome: string;
+    descricao: string;
+    url_imagem?: string;
+    porc_desconto?: number;
 }

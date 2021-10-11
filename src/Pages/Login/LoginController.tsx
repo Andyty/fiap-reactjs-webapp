@@ -1,11 +1,7 @@
 import React from 'react';
 import { LoginView } from './LoginView';
 
-export interface ILoginControllerProps {
-    teste?: boolean;
-};
-
-const LoginController: React.FC<ILoginControllerProps> = (props: ILoginControllerProps) => {
+const LoginController: React.FC = () => {
     return <LoginView />
 };
 
