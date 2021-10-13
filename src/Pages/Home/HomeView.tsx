@@ -18,10 +18,10 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
             history.push(`./course/${course.id}`);
         }
         const courseCardProps: ICourseCardProps = {
-            nome: course.nome,
-            descricao: course.descricao,
-            porc_desconto: course.porc_desconto,
-            url_imagem: course.url_imagem,
+            name: course.name,
+            description: course.description,
+            discount: course.discount,
+            image_url: course.image_url,
             onCardClick: onCardClick
         }
         return (

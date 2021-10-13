@@ -3,6 +3,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { MdHome, MdFavorite, MdShoppingCart } from 'react-icons/md';
 import { FaUserCircle } from 'react-icons/fa';
 import "./Navigation.scss"
+
 import { useRouteMatch } from "react-router-dom";
 
 export const Navigation: React.FC<any> = () => {

@@ -1,7 +1,7 @@
 export interface ICourse {
     id: number;
-    nome: string;
-    descricao: string;
-    url_imagem?: string;
-    porc_desconto?: number;
+    name: string;
+    description: string;
+    image_url?: string;
+    discount?: number;
 }
