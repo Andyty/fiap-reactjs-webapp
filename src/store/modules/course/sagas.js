@@ -7,9 +7,8 @@ import AlgaworksAPI from '../../../Services/AlgaworksAPI';
 import {
     searchCoursesStart,
     searchCoursesFinishSuccess,
-    searchCoursesFinishError, searchCourseByNameFinishSuccess
+    searchCoursesFinishError, searchCourseByNameFinishSuccess, searchCourseByIdFinishSuccess
 } from './actions';
-
 
 function* getCourses() {
     try {
@@ -43,7 +42,7 @@ function* getCourseByName({ payload }) {
 
         console.log("Before Call BY NAME");
         const { courseName } = payload
-        const coursesByName = yield call(AlgaworksAPI.getByName, "/courses", courseName);
+        const coursesByName = yield call(AlgaworksAPI.getCourseByName, courseName);
 
         console.log("After Call BY NAME");
         console.log(coursesByName);
@@ -62,7 +61,34 @@ function* getCourseByName({ payload }) {
     }
 }
 
+function* getCourseById({ payload }) {
+    try {
+        console.log("Start Connection");
+        yield put(searchCoursesStart());
+
+        console.log("Before Call BY ID");
+        const { courseId } = payload
+        const course = yield call(AlgaworksAPI.getCourseById, courseId);
+
+        console.log("After Call BY Id");
+        console.log(course);
+
+        if (course){
+            console.log("Success Call");
+            yield put(searchCourseByIdFinishSuccess(course));
+        } else {
+            console.log("NOT SUCCESS");
+            yield put(searchCoursesFinishError());
+        }
+    } catch (err) {
+        console.log(err);
+        console.log("Error Call");
+        yield put(searchCoursesFinishError());
+    }
+}
+
 export default all([
-    takeLatest('courseInfo/SEARCH_COURSES', getCourses),
-    takeLatest('courseInfo/SEARCH_COURSE_BY_NAME', getCourseByName),
+    takeLatest('course/SEARCH_COURSES', getCourses),
+    takeLatest('course/SEARCH_COURSE_BY_NAME', getCourseByName),
+    takeLatest('course/SEARCH_COURSE_BY_ID', getCourseById),
 ]);

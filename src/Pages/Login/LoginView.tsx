@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import "./LoginView.scss";
+import {useDispatch} from "react-redux";
+import {makeLogin} from "../../store/modules/user/actions";
 
 export interface ILoginViewProps {
-    submitLogin: (email: string, password: string) => void;
+    handleLogin: (email: string, password: string) => void;
 
 };
 
 export const LoginView: React.FC<ILoginViewProps> = (props: ILoginViewProps) => {
-
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
     return (
         <Container id="login-container">
@@ -36,7 +37,7 @@ export const LoginView: React.FC<ILoginViewProps> = (props: ILoginViewProps) => 
                     </Form.Group>
 
                     <div className="d-grid gap-2">
-                        <Button variant="primary" type="submit" onClick={() => props.submitLogin(email, password)}>Entrar</Button>
+                        <Button variant="primary" type="button" onClick={() => props.handleLogin(email, password)}>Entrar</Button>
                     </div>
                 </Form>
             </div>

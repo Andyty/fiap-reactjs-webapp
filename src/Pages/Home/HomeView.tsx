@@ -15,13 +15,14 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
 
     const getCourseCardElement = (course: ICourse): ReactElement => {
         const onCardClick = () => {
-            history.push(`./course/${course.id}`);
+            //TODO mudar pra name
+            history.push(`./course/${course.id}`, {course: course});
         }
         const courseCardProps: ICourseCardProps = {
-            name: course.name,
-            description: course.description,
-            discount: course.discount,
-            image_url: course.image_url,
+            nome: course.nome,
+            descricao: course.descricao,
+            porc_desconto: course.porc_desconto,
+            url_imagem: course.url_imagem,
             onCardClick: onCardClick
         }
         return (

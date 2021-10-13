@@ -17,7 +17,7 @@ const App = () => {
                 <Navigation />
                 <React.Suspense fallback={<span></span>}>
                     <Switch>
-                        <Route path="/user/:id" exact component={UserProfile} />
+                        <Route path="/userProfile" exact component={UserProfile} />
                         <Route path="/course/:id" exact component={CourseDetail} />
                         <Route path="/login" exact component={Login} />
                         <Route path="/" exact component={Home} />

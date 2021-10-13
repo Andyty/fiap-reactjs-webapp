@@ -4,40 +4,54 @@
 
 export function searchCoursesStart() {
     return {
-        type: 'courseInfo/SEARCH_COURSES_START',
+        type: 'course/SEARCH_COURSES_START',
     };
 }
 
 export function searchCourses() {
     return {
-        type: 'courseInfo/SEARCH_COURSES'
+        type: 'course/SEARCH_COURSES'
     };
 }
 
 export function searchCourseByName(courseName) {
     return {
-        type: 'courseInfo/SEARCH_COURSE_BY_NAME',
+        type: 'course/SEARCH_COURSE_BY_NAME',
         payload: { courseName }
+    };
+}
+
+export function searchCourseById(courseId) {
+    return {
+        type: 'course/SEARCH_COURSE_BY_ID',
+        payload: { courseId }
+    };
+}
+
+export function searchCourseByIdFinishSuccess(course) {
+    return {
+        type: 'course/SEARCH_COURSE_BY_ID_FINISH_SUCCESS',
+        payload: { course },
     };
 }
 
 export function searchCoursesFinishSuccess(courses) {
     return {
-        type: 'courseInfo/SEARCH_COURSES_FINISH_SUCCESS',
+        type: 'course/SEARCH_COURSES_FINISH_SUCCESS',
         payload: { courses },
     };
 }
 
 export function searchCourseByNameFinishSuccess(courses) {
     return {
-        type: 'courseInfo/SEARCH_COURSE_BY_NAME_FINISH_SUCCESS',
+        type: 'course/SEARCH_COURSE_BY_NAME_FINISH_SUCCESS',
         payload: { courses },
     };
 }
 
 export function searchCoursesFinishError() {
     return {
-        type: 'courseInfo/SEARCH_COURSES_FINISH_ERROR',
+        type: 'course/SEARCH_COURSES_FINISH_ERROR',
         payload: {  },
     };
 }

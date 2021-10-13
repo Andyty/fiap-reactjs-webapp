@@ -1,8 +1,8 @@
 export interface IUserProfile {
     id: number;
-    name: string;
+    nome: string;
     email: string;
-    profileImg?: string;
-    password?: string;
-    confirmPassword?: string;
+    imagemPerfil?: string;
+    senha?: string;
+    senhaConfirmacao?: string;
 }

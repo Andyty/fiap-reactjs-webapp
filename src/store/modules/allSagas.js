@@ -2,9 +2,9 @@
  * Objeto que junta todas as Sagas que usaremos no aplicativo
  */
 import { all } from 'redux-saga/effects';
-import userInfo from './userInfo/sagas.js';
-import courseInfo from './courseInfo/sagas.js';
+import user from './user/sagas.js';
+import course from './course/sagas.js';
 
 export default function* rootSaga() {
-    return yield all([userInfo, courseInfo]);
+    return yield all([user, course]);
 }

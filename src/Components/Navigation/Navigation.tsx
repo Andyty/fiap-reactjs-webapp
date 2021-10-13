@@ -17,7 +17,7 @@ export const Navigation: React.FC<any> = () => {
             {!matchLogin?.isExact && <Nav id="navbar-menus" className="justify-content-end">
                 <Nav.Link href="/"><MdFavorite size="25px" /></Nav.Link>
                 <Nav.Link href="/"><MdShoppingCart size="25px" /></Nav.Link>
-                <Nav.Link href="/user/testeID_123"><FaUserCircle size="25px" /></Nav.Link>
+                <Nav.Link href="/userProfile"><FaUserCircle size="25px" /></Nav.Link>
             </Nav>}
         </Navbar>
     );

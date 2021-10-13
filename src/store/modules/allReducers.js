@@ -2,7 +2,7 @@
  * Objeto que junta todos os Reducers que usaremos no aplicativo
  */
 import { combineReducers } from 'redux';
-import userInfo from './userInfo/reducer';
-import courseInfo from './courseInfo/reducer';
+import userInfox from './user/reducer';
+import courseInfo from './course/reducer';
 
-export default combineReducers({ userInfo, courseInfo });
+export default combineReducers({ userInfox, courseInfo });
