@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import { IUserProfile } from '../../Models/IUserProfile';
 import "./UserProfileView.scss";
 import Image from 'react-bootstrap/Image';

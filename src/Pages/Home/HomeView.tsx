@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { CourseCard, ICourseCardProps } from '../../Components/CourseCard/CourseCard';
 import { ICourse } from '../../Models/ICourse';
+import { useHistory } from "react-router";
 import "./HomeView.scss"
 
 export interface IHomeViewProps {
@@ -10,13 +11,18 @@ export interface IHomeViewProps {
 
 export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
 
+    const history = useHistory();
+
     const getCourseCardElement = (course: ICourse): ReactElement => {
+        const onCardClick = () => {
+            history.push(`./course/${course.id}`);
+        }
         const courseCardProps: ICourseCardProps = {
-            id: course.id,
             nome: course.nome,
             descricao: course.descricao,
             porc_desconto: course.porc_desconto,
-            url_imagem: course.url_imagem
+            url_imagem: course.url_imagem,
+            onCardClick: onCardClick
         }
         return (
             <Col className="homeview-col">

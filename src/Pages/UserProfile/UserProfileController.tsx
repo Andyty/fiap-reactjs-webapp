@@ -18,7 +18,7 @@ const UserProfileController: React.FC = () => {
         setUserProfile(newUserProfile);
     }
 
-    return <UserProfileView userProfile={user} onSaveChange={onSave} />
+    return <UserProfileView userProfile={userProfile} onSaveChange={onSave} />
 };
 
 export default UserProfileController;

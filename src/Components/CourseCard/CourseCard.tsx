@@ -1,24 +1,18 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { useHistory } from "react-router";
 import "./CourseCard.scss";
 
 export interface ICourseCardProps {
-    id: number;
     nome: string;
     descricao: string;
     porc_desconto?: number;
     url_imagem?: string;
+    onCardClick: () => void;
 }
 
 export const CourseCard: React.FC<ICourseCardProps> = (props: ICourseCardProps) => {
-    const history = useHistory();
-    const onCardClick = () => {
-        history.push(`./course/${props.id}`);
-    }
-
     return (
-        <Card className="course-card" onClick={onCardClick}>
+        <Card className="course-card" onClick={props.onCardClick}>
             {props.porc_desconto && <div className="discount-overlay">{`${props.porc_desconto}% OFF`}</div>}
             <Card.Img className="course-card-img" variant="top" src={props.url_imagem ?? "/courseImage.png"}></Card.Img>
             <Card.Body>

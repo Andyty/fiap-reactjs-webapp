@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Card, Container, ListGroup, Row } from 'react-bootstrap';
+import { Accordion, Card, Container, ListGroup } from 'react-bootstrap';
 import { ICourseDetail, ICourseModule, ICourseModuleContent } from '../../Models/ICourseDetail';
 import "./CourseDetailView.scss";
 
