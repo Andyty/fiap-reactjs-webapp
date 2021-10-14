@@ -13,16 +13,16 @@ export const CourseDetailView: React.FC<ICourseDetailViewProps> = (props: ICours
             <h2 className="mt-5 mb-2">{props.courseDetail?.nome}</h2>
             <h5 className="mb-4">{props.courseDetail?.nivel}</h5>
             <Card id="course-detail-card">
-                {props.courseDetail?.porc_desconto &&
+                {props.courseDetail?.porcDesconto &&
                     <div id="discount-overlay">
-                        <span id="promo-price-label">{`R$${props.courseDetail?.preco_promocional}`}</span>
-                        <span id="original-price-label">{`R$${props.courseDetail?.preco_original}`}</span>
+                        <span id="promo-price-label">{`R$${props.courseDetail?.precoPromocional}`}</span>
+                        <span id="original-price-label">{`R$${props.courseDetail?.precoOriginal}`}</span>
                     </div>
                 }
-                <Card.Img id="course-detail-card-img" variant="top" src={props.courseDetail?.url_imagem ?? "/courseImage.png"}></Card.Img>
+                <Card.Img id="course-detail-card-img" variant="top" src={/*props.courseDetail?.urlImagem ??*/ "/courseImage.png"}></Card.Img>
             </Card>
             <Accordion id="course-detail-accordion">
-                {props.courseDetail?.modulos.map((modulo: ICourseModule, index: number) =>
+                {props.courseDetail?.modulos?.map((modulo: ICourseModule, index: number) =>
                     <Accordion.Item className="course-detail-accordion-item" eventKey={index.toString()}>
                         <Accordion.Header className="course-detail-accordion-header">
                             <div className="course-detail-module-title">

@@ -13,8 +13,8 @@ export interface IUserProfileViewProps {
 
 export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserProfileViewProps) => {
     const [editMode, setEditMode] = useState<boolean>(false);
-    const [name, setName] = useState<string>("")
-    const [email, setEmail] = useState<string>("")
+    const [nome, setNome] = useState<string>(props.userProfile.nome)
+    const [email, setEmail] = useState<string>(props.userProfile.email)
     const [password, setPassword] = useState<string>("")
     const [confirmPass, setConfirmPass] = useState<string>("")
 
@@ -55,8 +55,8 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                             type="text"
                             plaintext={!editMode}
                             readOnly={!editMode}
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
                         />
                     </Form.Group>
 

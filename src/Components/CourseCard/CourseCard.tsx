@@ -5,16 +5,16 @@ import "./CourseCard.scss";
 export interface ICourseCardProps {
     nome: string;
     descricao: string;
-    porc_desconto?: number;
-    url_imagem?: string;
+    porcDesconto?: number;
+    urlImagem?: string;
     onCardClick: () => void;
 }
 
 export const CourseCard: React.FC<ICourseCardProps> = (props: ICourseCardProps) => {
     return (
         <Card className="course-card" onClick={props.onCardClick}>
-            {props.porc_desconto && <div className="discount-overlay">{`${props.url_imagem}% OFF`}</div>}
-            <Card.Img className="course-card-img" variant="top" src={props.url_imagem ?? "/courseImage.png"}></Card.Img>
+            {props.porcDesconto && <div className="discount-overlay">{`${props.porcDesconto}% OFF`}</div>}
+            <Card.Img className="course-card-img" variant="top" src={/*props.urlImagem ??*/ "/courseImage.png"}></Card.Img>
             <Card.Body>
                 <Card.Title>{props.nome}</Card.Title>
                 <Card.Text>{props.descricao}</Card.Text>

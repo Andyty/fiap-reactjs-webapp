@@ -22,9 +22,9 @@
         padding-left: 10px;
     }
 
-    // @include media-breakpoint-up(md) {
-    //     #navbar-search-container {
-    //         width: 50%;
-    //     }
-    // }
+     @include media-breakpoint-up(md) {
+         #navbar-search-container {
+             width: 50%;
+         }
+     }
 }

@@ -11,19 +11,19 @@ export default class AlgaworksAPI {
     }
 
     static getCourseById(courseId: number) {
-        return fetch(`http://localhost:3001/courses/${courseId}`)
+        return fetch(`http://localhost:3001/cursos/${courseId}`)
             .then(response => response.json())
             .catch(reason => console.log(reason))
     }
 
     static getCourseByName(courseName: String) {
-        return fetch(`http://localhost:3001/courses?name=${courseName}`)
+        return fetch(`http://localhost:3001/cursos?nome=${courseName}`)
             .then(response => response.json())
             .catch(reason => console.log(reason))
     }
 
     static getUserByEmail(email: String) {
-        return fetch(`http://localhost:3001/users?email=${email}`)
+        return fetch(`http://localhost:3001/usuarios?email=${email}`)
             .then(response => response.json())
             .catch(reason => console.log(reason))
     }

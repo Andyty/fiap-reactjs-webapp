@@ -16,7 +16,7 @@ function* getCourses() {
         yield put(searchCoursesStart());
 
         console.log("Before Call");
-        const courses = yield call(AlgaworksAPI.get, "/courses");
+        const courses = yield call(AlgaworksAPI.get, "/cursos");
 
         console.log("After Call");
         console.log(courses);

@@ -21,8 +21,8 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
         const courseCardProps: ICourseCardProps = {
             nome: course.nome,
             descricao: course.descricao,
-            porc_desconto: course.porc_desconto,
-            url_imagem: course.url_imagem,
+            porcDesconto: course.porcDesconto,
+            urlImagem: course.urlImagem,
             onCardClick: onCardClick
         }
         return (
