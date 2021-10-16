@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Form } from 'react-bootstrap';
+import { Container, Form, FormControlProps } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import "./LoginView.scss";
-import {useDispatch} from "react-redux";
-import {makeLogin} from "../../store/modules/user/actions";
+import { useDispatch } from "react-redux";
+import { makeLogin } from "../../store/modules/user/actions";
 
 export interface ILoginViewProps {
     handleLogin: (email: string, password: string) => void;
@@ -13,6 +13,13 @@ export interface ILoginViewProps {
 export const LoginView: React.FC<ILoginViewProps> = (props: ILoginViewProps) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
+    const onEnterPress = (e: React.KeyboardEvent) => {
+        //it triggers by pressing the enter key
+        if (e.key === 'Enter') {
+            props.handleLogin(email, password);
+        }
+    }
 
     return (
         <Container id="login-container">
@@ -33,6 +40,7 @@ export const LoginView: React.FC<ILoginViewProps> = (props: ILoginViewProps) => 
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            onKeyPress={onEnterPress}
                         />
                     </Form.Group>
 

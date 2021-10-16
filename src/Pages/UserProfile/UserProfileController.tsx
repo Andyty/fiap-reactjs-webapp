@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IUserProfile } from '../../Models/IUserProfile';
 import { UserProfileView } from './UserProfileView';
-import {RootStateOrAny, useSelector} from "react-redux";
+import { RootStateOrAny, useSelector } from "react-redux";
 
 const UserProfileController: React.FC = () => {
     const userInfo = useSelector((state: RootStateOrAny) => state.userInfox.info);

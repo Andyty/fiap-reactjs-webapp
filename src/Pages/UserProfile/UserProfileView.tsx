@@ -36,17 +36,7 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
 
     return (
         <Container id="user-profile-container">
-            {/*!props.userProfile.imagemPerfil &&*/ <FaUserCircle className="user-profile-icon" size="100px" />}
-            {/*props.userProfile.imagemPerfil &&*/ <Image id="user-profile-img" src={``} roundedCircle />}
-            <Form.Group className="position-relative mb-3">
-                <Form.Label id="user-profile-img-input-label" htmlFor="user-profile-img-input">Alterar foto do perfil</Form.Label>
-                <Form.Control
-                    id="user-profile-img-input"
-                    type="file"
-                    name="file"
-                    onChange={onFileSelect}
-                />
-            </Form.Group>
+            <FaUserCircle className="user-profile-icon" size="100px" />
             <div id="user-profile-form">
                 <Form>
                     <Form.Group className="mb-3" controlId="user-name">
