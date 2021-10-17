@@ -3,13 +3,12 @@ import { HomeView } from './HomeView';
 import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
 import { searchCourses } from "../../store/modules/course/actions";
 import { useHistory } from "react-router";
-import { createNonNullExpression } from 'typescript';
 
 export interface IHomeControllerProps {
 };
 
 const HomeController: React.FC<IHomeControllerProps> = (props: IHomeControllerProps) => {
-    const userInfo = useSelector((state: RootStateOrAny) => state.userInfox?.info ?? createNonNullExpression);
+    const userInfo = useSelector((state: RootStateOrAny) => state.userInfox?.info ?? null);
     const courses = useSelector((state: RootStateOrAny) => state.courseInfo.courses);
     const dispatch = useDispatch()
 
