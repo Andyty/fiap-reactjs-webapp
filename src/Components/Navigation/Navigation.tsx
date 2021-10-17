@@ -10,7 +10,7 @@ import { searchCourseByName } from "../../store/modules/course/actions";
 import { RootStateOrAny, useSelector } from "react-redux";
 
 export const Navigation: React.FC<any> = () => {
-    const userIsLogged = useSelector((state: RootStateOrAny) => state.userInfox.info.isLogged);
+    const userIsLogged = useSelector((state: RootStateOrAny) => state.userInfox?.info?.isLogged ?? null);
     let matchLogin = useRouteMatch('/login');
     const [searchTerm, setSearchTerm] = useState('');
     const dispatch = useDispatch()
