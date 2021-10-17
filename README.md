@@ -27,8 +27,8 @@ Password: demo
 ```
 - Além da ação de se logar, é possível fazer o logout, buscar por um curso, editar o usuário
 - Esse projeto está divido em dois branches, um para o entregável da primeira etapa (main) e outro para o entregável da terceita etapa (spring-backend):
--- main: Está configurado para se conectar com o WebService em NodeJS (implementado em https://github.com/BrunoSudre/algaworks-api)
--- spring-backend: Está configurado para se conectar com o WebService em Spring (implementado em https://github.com/thalesantonioli/fiap-tech-cursos)
+  - main: Está configurado para se conectar com o WebService em NodeJS (implementado em https://github.com/BrunoSudre/algaworks-api)
+  - spring-backend: Está configurado para se conectar com o WebService em Spring (implementado em https://github.com/thalesantonioli/fiap-tech-cursos)
 
 Para executar o projeto basta rodar o comando
 ```
