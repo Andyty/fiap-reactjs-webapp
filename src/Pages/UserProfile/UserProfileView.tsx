@@ -2,31 +2,31 @@ import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { IUserProfile } from '../../Models/IUserProfile';
 import "./UserProfileView.scss";
-import Image from 'react-bootstrap/Image';
 import { FaUserCircle } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button'
 
 export interface IUserProfileViewProps {
     userProfile: IUserProfile
-    onSaveChange: (newUserProfile: IUserProfile) => void;
+    onUserUpdate: any;
+    onLogout: any;
 };
 
 export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserProfileViewProps) => {
     const [editMode, setEditMode] = useState<boolean>(false);
-    const [name, setName] = useState<string>(props.userProfile.name)
+    const [nome, setNome] = useState<string>(props.userProfile.nome)
     const [email, setEmail] = useState<string>(props.userProfile.email)
     const [password, setPassword] = useState<string>("")
-    const [confirmPass, setConfirmPass] = useState<string>("")
+    const [confirmPassword, setConfirmPass] = useState<string>("")
 
     const saveChange = () => {
         const newUser: IUserProfile = {
             id: props.userProfile.id,
-            name: name,
+            nome: nome,
             email: email,
-            password: password !== "" ? password : undefined,
-            confirmPassword: confirmPass !== "" ? confirmPass : undefined,
+            password: password,
+            confirmPassword: confirmPassword,
         }
-        props.onSaveChange(newUser);
+        props.onUserUpdate(newUser);
         setEditMode(false);
     }
 
@@ -36,17 +36,7 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
 
     return (
         <Container id="user-profile-container">
-            {!props.userProfile.profileImg && <FaUserCircle className="user-profile-icon" size="100px" />}
-            {props.userProfile.profileImg && <Image id="user-profile-img" src={`${props.userProfile.profileImg}`} roundedCircle />}
-            <Form.Group className="position-relative mb-3">
-                <Form.Label id="user-profile-img-input-label" htmlFor="user-profile-img-input">Alterar foto do perfil</Form.Label>
-                <Form.Control
-                    id="user-profile-img-input"
-                    type="file"
-                    name="file"
-                    onChange={onFileSelect}
-                />
-            </Form.Group>
+            <FaUserCircle className="user-profile-icon" size="100px" />
             <div id="user-profile-form">
                 <Form>
                     <Form.Group className="mb-3" controlId="user-name">
@@ -55,8 +45,8 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                             type="text"
                             plaintext={!editMode}
                             readOnly={!editMode}
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
                         />
                     </Form.Group>
 
@@ -64,8 +54,8 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                             type="email"
-                            plaintext={!editMode}
-                            readOnly={!editMode}
+                            plaintext={true}
+                            readOnly={true}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -88,7 +78,7 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                             type="password"
                             plaintext={!editMode}
                             readOnly={!editMode}
-                            value={confirmPass}
+                            value={confirmPassword}
                             onChange={(e) => setConfirmPass(e.target.value)}
                         />
                     </Form.Group>}
@@ -96,6 +86,7 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                         {editMode && <Button variant="primary" type="submit" onClick={saveChange}>Salvar</Button>}
                         {editMode && <Button variant="primary" type="submit" onClick={() => { setEditMode(false) }}>Cancelar</Button>}
                         {!editMode && <Button variant="primary" onClick={() => { setEditMode(true) }}>Editar</Button>}
+                        {!editMode && <Button variant="danger" onClick={props.onLogout}>Sair</Button>}
                     </div>
                 </Form>
             </div>

@@ -1,21 +1,26 @@
-import React from 'react';
-import { ICourse } from '../../Models/ICourse';
+import React, {useEffect} from 'react';
 import { HomeView } from './HomeView';
+import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
+import {searchCourses} from "../../store/modules/course/actions";
+import {useHistory} from "react-router";
 
-const HomeController: React.FC = () => {
-    const courses: ICourse[] = [];
+export interface IHomeControllerProps {
+};
 
-    for (let i = 0; i < 15; i++) {
-        courses.push(
-            {
-                id: i,
-                nome: `(${i}) REACT JS`,
-                descricao: i % 2 ? `(${i}) REACT JS description for the card` : `(${i}) REACT JS description for the card Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa alias laudantium sapiente optio debitis molestias magni sequi qui`,
-                porc_desconto: i % 2 ? 20 : undefined
-            }
-        );
+const HomeController: React.FC<IHomeControllerProps> = (props: IHomeControllerProps) => {
+    const userInfo = useSelector((state: RootStateOrAny) => state.userInfox.info);
+    const courses = useSelector((state: RootStateOrAny) => state.courseInfo.courses);
+    const dispatch = useDispatch()
+
+    const history = useHistory();
+
+    if (!userInfo.isLogged) {
+        history.push('/login');
     }
 
+    useEffect(() => {
+        dispatch(searchCourses())
+    }, [])
 
     return <HomeView coursesList={courses} />
 };

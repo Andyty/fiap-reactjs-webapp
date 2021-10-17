@@ -2,8 +2,8 @@ import { ICourse } from "./ICourse";
 
 export interface ICourseDetail extends ICourse {
     nivel: string;
-    preco_original: string;
-    preco_promocional: string;
+    preco_original: number;
+    preco_promocional: number;
     modulos: ICourseModule[];
 }
 
