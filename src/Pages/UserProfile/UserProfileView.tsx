@@ -30,10 +30,6 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
         setEditMode(false);
     }
 
-    const onFileSelect = (e: React.ChangeEvent) => {
-        // TODO: implement image change
-    }
-
     return (
         <Container id="user-profile-container">
             <FaUserCircle className="user-profile-icon" size="100px" />

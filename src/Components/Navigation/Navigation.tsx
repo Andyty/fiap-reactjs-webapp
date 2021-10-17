@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Form, FormControl, InputGroup, Nav, Navbar } from 'react-bootstrap';
-import { MdHome, MdFavorite, MdShoppingCart, MdSearch } from 'react-icons/md';
+import { MdHome, MdSearch } from 'react-icons/md';
 import { FaUserCircle } from 'react-icons/fa';
 import "./Navigation.scss"
 
@@ -38,7 +38,7 @@ export const Navigation: React.FC<any> = () => {
                             aria-describedby="search-button"
                             onChange={handleSearchTermChanges}
                             onKeyPress={event => {
-                                if (event.key == "Enter") {
+                                if (event.key === "Enter") {
                                     handleSearchCourseByName()
                                 }
                             }

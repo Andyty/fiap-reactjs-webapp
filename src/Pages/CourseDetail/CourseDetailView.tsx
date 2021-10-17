@@ -19,11 +19,11 @@ export const CourseDetailView: React.FC<ICourseDetailViewProps> = (props: ICours
                         <span id="original-price-label">{`R$${props.courseDetail?.preco_original}`}</span>
                     </div>
                 }
-                <Card.Img id="course-detail-card-img" variant="top" src={/*props.courseDetail?.urlImagem ??*/ "/courseImage.png"}></Card.Img>
+                <Card.Img id="course-detail-card-img" variant="top" src={props.courseDetail?.url_imagem ?? "/courseImage.png"}></Card.Img>
             </Card>
             <Accordion id="course-detail-accordion">
                 {props.courseDetail?.modulos?.map((modulo: ICourseModule, index: number) =>
-                    <Accordion.Item className="course-detail-accordion-item" eventKey={index.toString()}>
+                    <Accordion.Item id={`modulo_${index}`} className="course-detail-accordion-item" eventKey={index.toString()}>
                         <Accordion.Header className="course-detail-accordion-header">
                             <div className="course-detail-module-title">
                                 <div>{modulo.nome}</div>
@@ -32,8 +32,8 @@ export const CourseDetailView: React.FC<ICourseDetailViewProps> = (props: ICours
                         </Accordion.Header>
                         <Accordion.Body>
                             <ListGroup variant="flush">
-                                {modulo.conteudos.map((conteudo: ICourseModuleContent) =>
-                                    <ListGroup.Item>{conteudo.descricao}</ListGroup.Item>
+                                {modulo.conteudos.map((conteudo: ICourseModuleContent, index: number) =>
+                                    <ListGroup.Item id={`conteudo_${index}`}>{conteudo.descricao}</ListGroup.Item>
                                 )}
                             </ListGroup>
                         </Accordion.Body>

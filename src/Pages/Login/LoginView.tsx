@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Form, FormControlProps } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import "./LoginView.scss";
-import { useDispatch } from "react-redux";
-import { makeLogin } from "../../store/modules/user/actions";
 
 export interface ILoginViewProps {
     handleLogin: (email: string, password: string) => void;

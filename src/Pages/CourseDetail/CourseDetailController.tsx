@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CourseDetailView } from './CourseDetailView';
-import {useLocation} from "react-router-dom";
-import {RootStateOrAny, useSelector} from "react-redux";
-import {useHistory} from "react-router";
+import { useLocation } from "react-router-dom";
+import { RootStateOrAny, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const CourseDetailController: React.FC = () => {
     const userInfo = useSelector((state: RootStateOrAny) => state.userInfox.info);

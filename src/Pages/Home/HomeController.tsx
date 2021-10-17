@@ -10,7 +10,7 @@ export interface IHomeControllerProps {
 const HomeController: React.FC<IHomeControllerProps> = (props: IHomeControllerProps) => {
     const userInfo = useSelector((state: RootStateOrAny) => state.userInfox?.info ?? null);
     const courses = useSelector((state: RootStateOrAny) => state.courseInfo.courses);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const history = useHistory();
 
