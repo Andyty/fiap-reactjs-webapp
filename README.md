@@ -32,6 +32,10 @@ Password: demo
 
 Para executar o projeto basta rodar o comando
 ```
+npm install
+```
+para instalar todas as dependências e em seguida, rodar:
+```
 npm run start
 ```
 ou apenas 
