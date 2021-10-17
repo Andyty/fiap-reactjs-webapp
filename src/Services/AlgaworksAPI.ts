@@ -17,7 +17,7 @@ export default class AlgaworksAPI {
     }
 
     static getCourseByName(courseName: String) {
-        return fetch((API_URL as string) + `/cursos?nome=${courseName}`)
+        return fetch((API_URL as string) + `/cursos?criteria=${courseName}`)
             .then(response => response.json())
             .catch(reason => console.log(reason))
     }
