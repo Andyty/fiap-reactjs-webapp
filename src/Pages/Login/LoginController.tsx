@@ -9,7 +9,7 @@ const LoginController: React.FC = () => {
     const dispatch = useDispatch()
     const userInfo = useSelector((state: RootStateOrAny) => state.userInfox);
 
-    if (userInfo && userInfo.isLogged) {
+    if (userInfo && userInfo.info.isLogged) {
         history.push('/');
     }
 

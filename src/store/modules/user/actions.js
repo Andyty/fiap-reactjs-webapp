@@ -16,3 +16,25 @@ export function makeLoginFinishSuccess(user) {
         payload: user,
     };
 }
+
+export function update(payload) {
+    console.log("Action update");
+    return {
+        type: 'user/UPDATE',
+        payload: payload,
+    };
+}
+
+export function makeUpdateFinishSuccess(user) {
+    return {
+        type: 'user/MAKE_UPDATE_FINISH_SUCCESS',
+        payload: user,
+    };
+}
+
+export function logout() {
+    console.log("Action logout");
+    return {
+        type: 'user/MAKE_LOGOUT',
+    };
+}

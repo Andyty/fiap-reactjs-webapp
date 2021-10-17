@@ -3,6 +3,6 @@ export interface IUserProfile {
     nome: string;
     email: string;
     imagemPerfil?: string;
-    senha?: string;
-    senhaConfirmacao?: string;
+    password?: string;
+    confirmPassword?: string;
 }

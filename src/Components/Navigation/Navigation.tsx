@@ -10,7 +10,7 @@ import { searchCourseByName } from "../../store/modules/course/actions";
 import { RootStateOrAny, useSelector } from "react-redux";
 
 export const Navigation: React.FC<any> = () => {
-    const userIsLogged = useSelector((state: RootStateOrAny) => state.userInfox.isLogged);
+    const userIsLogged = useSelector((state: RootStateOrAny) => state.userInfox.info.isLogged);
     let matchLogin = useRouteMatch('/login');
     const [searchTerm, setSearchTerm] = useState('');
     const dispatch = useDispatch()
@@ -28,7 +28,7 @@ export const Navigation: React.FC<any> = () => {
             <Navbar.Brand href="/" id="navbar-home">
                 <MdHome size="25px" />
             </Navbar.Brand>
-            <Container id="navbar-search-container">
+            {userIsLogged && <Container id="navbar-search-container">
                 <Form id="navbar-search" onSubmit={event => { event.preventDefault() }}>
                     <InputGroup >
                         <FormControl
@@ -49,7 +49,7 @@ export const Navigation: React.FC<any> = () => {
                         </Button>
                     </InputGroup>
                 </Form>
-            </Container>
+            </Container>}
             {!matchLogin?.isExact && <Nav id="navbar-menus" className="justify-content-end">
                 {userIsLogged && <Nav.Link href="/userProfile"><FaUserCircle size="25px" /></Nav.Link>}
                 {!userIsLogged && <Nav.Link href="/login"><FaUserCircle size="25px" /></Nav.Link>}

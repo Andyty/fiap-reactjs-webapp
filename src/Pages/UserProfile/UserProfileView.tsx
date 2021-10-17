@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { IUserProfile } from '../../Models/IUserProfile';
 import "./UserProfileView.scss";
-import Image from 'react-bootstrap/Image';
 import { FaUserCircle } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button'
 
 export interface IUserProfileViewProps {
     userProfile: IUserProfile
-    onSaveChange: (newUserProfile: IUserProfile) => void;
+    onUserUpdate: any;
+    onLogout: any;
 };
 
 export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserProfileViewProps) => {
@@ -16,19 +16,19 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
     const [nome, setNome] = useState<string>(props.userProfile.nome)
     const [email, setEmail] = useState<string>(props.userProfile.email)
     const [password, setPassword] = useState<string>("")
-    const [confirmPass, setConfirmPass] = useState<string>("")
+    const [confirmPassword, setConfirmPass] = useState<string>("")
 
-    // const saveChange = () => {
-    //     const newUser: IUserProfile = {
-    //         id: props.userProfile.id,
-    //         nome: name,
-    //         email: email,
-    //         senha: password !== "" ? password : undefined,
-    //         senhaConfirmacao: confirmPass !== "" ? confirmPass : undefined,
-    //     }
-    //     props.onSaveChange(newUser);
-    //     setEditMode(false);
-    // }
+    const saveChange = () => {
+        const newUser: IUserProfile = {
+            id: props.userProfile.id,
+            nome: nome,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
+        }
+        props.onUserUpdate(newUser);
+        setEditMode(false);
+    }
 
     const onFileSelect = (e: React.ChangeEvent) => {
         // TODO: implement image change
@@ -54,8 +54,8 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                             type="email"
-                            plaintext={!editMode}
-                            readOnly={!editMode}
+                            plaintext={true}
+                            readOnly={true}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -78,14 +78,15 @@ export const UserProfileView: React.FC<IUserProfileViewProps> = (props: IUserPro
                             type="password"
                             plaintext={!editMode}
                             readOnly={!editMode}
-                            value={confirmPass}
+                            value={confirmPassword}
                             onChange={(e) => setConfirmPass(e.target.value)}
                         />
                     </Form.Group>}
                     <div className="d-grid gap-2">
-                        {/*{editMode && <Button variant="primary" type="submit" onClick={saveChange}>Salvar</Button>}*/}
+                        {editMode && <Button variant="primary" type="submit" onClick={saveChange}>Salvar</Button>}
                         {editMode && <Button variant="primary" type="submit" onClick={() => { setEditMode(false) }}>Cancelar</Button>}
                         {!editMode && <Button variant="primary" onClick={() => { setEditMode(true) }}>Editar</Button>}
+                        {!editMode && <Button variant="danger" onClick={props.onLogout}>Sair</Button>}
                     </div>
                 </Form>
             </div>
