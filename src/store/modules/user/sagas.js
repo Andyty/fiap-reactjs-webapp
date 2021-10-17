@@ -10,11 +10,11 @@ function* makeLogin({ payload }) {
         const { email, password } = payload
         const userByEmail = yield call(AlgaworksAPI.getUserByEmail, email);
 
-        console.log(userByEmail[0]);
+        console.log(userByEmail);
 
-        if (userByEmail && userByEmail[0].password === password) {
+        if (userByEmail?.password === password) {
             console.log("Success Call");
-            yield put(makeLoginFinishSuccess(userByEmail[0]));
+            yield put(makeLoginFinishSuccess(userByEmail));
         } else {
             console.log("NOT SUCCESS");
         }

@@ -19,11 +19,11 @@ function* getCourses() {
         const courses = yield call(AlgaworksAPI.get, "/cursos");
 
         console.log("After Call");
-        console.log(courses);
+        console.log(courses.cursos);
 
-        if (courses instanceof Array){
+        if (courses.cursos instanceof Array) {
             console.log("Success Call");
-            yield put(searchCoursesFinishSuccess(courses));
+            yield put(searchCoursesFinishSuccess(courses.cursos));
         } else {
             console.log("NOT SUCCESS");
             yield put(searchCoursesFinishError());
@@ -47,7 +47,7 @@ function* getCourseByName({ payload }) {
         console.log("After Call BY NAME");
         console.log(coursesByName);
 
-        if (coursesByName instanceof Array){
+        if (coursesByName instanceof Array) {
             console.log("Success Call");
             yield put(searchCourseByNameFinishSuccess(coursesByName));
         } else {
@@ -73,7 +73,7 @@ function* getCourseById({ payload }) {
         console.log("After Call BY Id");
         console.log(course);
 
-        if (course){
+        if (course) {
             console.log("Success Call");
             yield put(searchCourseByIdFinishSuccess(course));
         } else {
