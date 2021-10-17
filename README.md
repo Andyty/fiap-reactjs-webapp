@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# fiap-reactjs-webapp
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/henriquevergara/android-alura-orgs">
+    <img src="https://reactjs.org/logo-og.png" alt="Logo" width="240" height="123">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Fiap-reactjs-webapp</h3>
 
-## Available Scripts
+  <p align="center">
+    Entregável da primeira e terceira etapas, atividade fase 3.
+    <br />
+</p>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
+## Sobre o projeto
 
-### `npm start`
+Neste projeto foi desenvolvido a WebApp desenvolvido em ReactJS com a proposta de simular a plataforma de cursos online discutido na fase 1.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Instruções Gerais:
+- Neste WebApp foi desenvolvido apenas as páginas de Login, Listagem de Curso (Home), Detalhes do Curso e Perfil do Usuário
+- Para se logar, é possível usar o usuário
+```
+Email: demo_user@email.com
+Password: demo
+```
+- Além da ação de se logar, é possível fazer o logout, buscar por um curso, editar o usuário
+- Esse projeto está divido em dois branches, um para o entregável da primeira etapa (main) e outro para o entregável da terceita etapa (spring-backend):
+-- main: Está configurado para se conectar com o WebService em NodeJS (implementado em https://github.com/BrunoSudre/algaworks-api)
+-- spring-backend: Está configurado para se conectar com o WebService em Spring (implementado em https://github.com/thalesantonioli/fiap-tech-cursos)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para executar o projeto basta rodar o comando
+```
+npm run start
+```
+ou apenas 
+```
+npm start
+```
+Esse comando irá abrir a aplicação em [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-### `npm test`
+## Principais Tecnologias e Conceitos Utilizados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ReactJS](https://reactjs.org/)
+- [Redux-Saga](https://redux-saga.js.org/)
+- [React-Bootstrap](https://react-bootstrap.netlify.app/)
+- [Typescript](https://www.typescriptlang.org/)
