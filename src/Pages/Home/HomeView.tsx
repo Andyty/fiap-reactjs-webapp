@@ -13,7 +13,7 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
 
     const history = useHistory();
 
-    const getCourseCardElement = (course: ICourse): ReactElement => {
+    const getCourseCardElement = (course: ICourse, index: number): ReactElement => {
         const onCardClick = () => {
             history.push(`./course/${course.id}`, { course: course });
         }
@@ -25,7 +25,7 @@ export const HomeView: React.FC<IHomeViewProps> = (props: IHomeViewProps) => {
             onCardClick: onCardClick
         }
         return (
-            <Col className="homeview-col">
+            <Col key={`course_card_${index}`} className="homeview-col">
                 <CourseCard {...courseCardProps} />
             </Col>
         )

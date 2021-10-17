@@ -23,7 +23,7 @@ export const CourseDetailView: React.FC<ICourseDetailViewProps> = (props: ICours
             </Card>
             <Accordion id="course-detail-accordion">
                 {props.courseDetail?.modulos?.map((modulo: ICourseModule, index: number) =>
-                    <Accordion.Item id={`modulo_${index}`} className="course-detail-accordion-item" eventKey={index.toString()}>
+                    <Accordion.Item key={`modulo_${index}`} className="course-detail-accordion-item" eventKey={index.toString()}>
                         <Accordion.Header className="course-detail-accordion-header">
                             <div className="course-detail-module-title">
                                 <div>{modulo.nome}</div>
@@ -33,7 +33,7 @@ export const CourseDetailView: React.FC<ICourseDetailViewProps> = (props: ICours
                         <Accordion.Body>
                             <ListGroup variant="flush">
                                 {modulo.conteudos.map((conteudo: ICourseModuleContent, index: number) =>
-                                    <ListGroup.Item id={`conteudo_${index}`}>{conteudo.descricao}</ListGroup.Item>
+                                    <ListGroup.Item key={`conteudo_${index}`}>{conteudo.descricao}</ListGroup.Item>
                                 )}
                             </ListGroup>
                         </Accordion.Body>
